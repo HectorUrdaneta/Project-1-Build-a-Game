@@ -12,11 +12,11 @@ body {
    font-family: 'Helvetica Neue', Helvetica, Verdana, sans-serif;
   }
   
-  header {
+  /* header {
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
-  }
+  } */
   
   h1 {
     margin: 12px 0;
@@ -55,5 +55,7 @@ body {
   #reset {
       margin-left: 175px;
   }
-
+#next #reset {
+    text-align: center;
+}
 
