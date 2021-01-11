@@ -32,16 +32,18 @@ body {
   }
   
   blockquote {
-    font: bold 3em 'Pinyon Script', cursive;
+    font: 'Helvetica Neue';
+    font-style: bold;
+    font-size: 40px;
     margin-bottom: 0;
   }
   #answer {
-    width: 400px;
+    width: 240px;
     margin: 5px 0;
     padding: 5px;
     font-size: 110%;
   }
-  #submit, #next, #reset {
+  #submit, #next, #reset, #start {
     background: #000;
     color: #fff;
     padding: 5px;
@@ -49,13 +51,19 @@ body {
     height: 30px;
     font-size: 15px;
   }
-  #next {
-      margin-left: 225px;
+#start {
+    margin-left: 65px;
+}
+#next {
+      margin-left: 125px;
   }
-  #reset {
-      margin-left: 175px;
-  }
+#reset {
+      margin-left: 150px;
+}
 #next #reset {
     text-align: center;
+}
+.inputs {
+    padding-top: 15px;
 }
 
