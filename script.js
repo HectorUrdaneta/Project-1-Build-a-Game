@@ -28,6 +28,8 @@ console.log(trivia);
 //Add event listener to manage correct and incorret answers
 let counter = 0;
 let score = 0;
+document.querySelector('form').style.display = 'none';
+
 document.querySelector('#submit').addEventListener('click', answerHandler);
 
 function answerHandler(e) {
@@ -60,6 +62,7 @@ function answerHandler(e) {
             } else if (score < 5) {
                 document.querySelector('blockquote').textContent = `GAME OVER! Need to read more soccer trivia, you scored ${score} out 10`;
             }
+            document.querySelector('form').style.display = 'none';
             return;
         }
     } else {
@@ -72,7 +75,7 @@ document.querySelector('#start').addEventListener('click', startGame);
 
 function startGame() {
     document.querySelector('blockquote').textContent = trivia[counter].question;
-    
+    document.querySelector('form').style.display = 'block';
     document.querySelector('#start').style.display = 'none';
 }
 
@@ -84,7 +87,8 @@ function resetButton () {
     score = 0;
     counter = 0;
     document.querySelector('#start').style.display = 'block';
-    document.querySelector('blockquote').textContent = 'Game On!'
+    document.querySelector('blockquote').textContent = 'Game On!';
+    document.querySelector('form').style.display = 'none';
     document.querySelector('h2').textContent = `Score: ${score} out of 10`;
 }
 
