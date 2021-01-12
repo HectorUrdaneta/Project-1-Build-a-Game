@@ -24,19 +24,6 @@ const trivia = [
     answer: 'c'}
 ]
 console.log(trivia);
-// const answers = [
-//     'Qatar',
-//     'Brazil',
-//     'Fontaine',
-//     'Klose',
-//     'Uruguay',
-//     '1994',
-//     '7',
-//     '1930',
-//     '4',
-//     'Pele'
-// ]
-// console.log(answers);
                                                               
 //Add event listener to manage correct and incorret answers
 let counter = 0;
@@ -45,7 +32,7 @@ document.querySelector('#submit').addEventListener('click', answerHandler);
 
 function answerHandler(e) {
     e.preventDefault();
-    //console.log('inside answerHandler');
+    console.log('inside answerHandler');
     const response = document.querySelector('#answer').value;
     const resp = response.toLowerCase();
     if (resp === 'a' || resp === 'b' || resp === 'c') {
@@ -81,31 +68,24 @@ function answerHandler(e) {
     }
 }
 //Add function to start the game
-
 document.querySelector('#start').addEventListener('click', startGame);
 
-function startGame(e) {
+function startGame() {
     document.querySelector('blockquote').textContent = trivia[counter].question;
-    //askQuestion(e);
+    
     document.querySelector('#start').style.display = 'none';
-    //document.querySelector('form').style.display = 'block';
-    // document.querySelector('#next').style.display = 'none';
 }
 
 
 // add event listener and build reset button functionality
 document.querySelector('#reset').addEventListener('click', resetButton);
-function resetButton (e) {
+function resetButton () {
     console.log('inside reset');
     score = 0;
     counter = 0;
     document.querySelector('#start').style.display = 'block';
     document.querySelector('blockquote').textContent = 'Game On!'
     document.querySelector('h2').textContent = `Score: ${score} out of 10`;
-    //reset visuals
-    //document.querySelector('form').style.display = 'none';
-    //document.querySelector('#next').style.display = 'none';
-
 }
 
 
