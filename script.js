@@ -37,35 +37,10 @@ console.log(trivia);
 //     'Pele'
 // ]
 // console.log(answers);
-//Hide <form> and next question buttons
-//document.querySelector('form').style.display = 'none';
-//document.querySelector('#next').style.display = 'none';
-
-
-//Add event listener to display the questions
-document.querySelector('#next').addEventListener('click', askQuestion);
-let counter = 0;
-let score =0;
-function askQuestion (e) {
-    e.preventDefault();
-    console.log(e);
-    console.log('inside askQuestion');
-    if (counter === trivia.length) {
-        if (score >= 9) {
-        document.querySelector('blockquote').textContent = `GAME OVER! You're an expert with a scored ${score} out 10`;
-        } else if (score <= 8 && score >=5) {
-            document.querySelector('blockquote').textContent = `GAME OVER! You're pretty good with a scored ${score} out 10`;    
-        } else if (score < 5) {
-            document.querySelector('blockquote').textContent = `GAME OVER! Need to read more soccer trivia, you scored ${score} out 10`;
-        }
-        return;
-    } else {
-    document.querySelector('blockquote').textContent = trivia[counter].question;
-    //document.querySelector('form').style.display = 'block';
-    //document.querySelector('#next').style.display = 'none';
-    }    
-}
+                                                              
 //Add event listener to manage correct and incorret answers
+let counter = 0;
+let score = 0;
 document.querySelector('#submit').addEventListener('click', answerHandler);
 
 function answerHandler(e) {
@@ -81,11 +56,9 @@ function answerHandler(e) {
         }
         return;
     }
-      
-
+    
     const response = document.querySelector('#answer').value;
     const resp = response.toLowerCase();
-    
     
     if (resp == trivia[counter].answer && counter < trivia.length) {
         score = score + 1;
@@ -115,7 +88,7 @@ function startGame(e) {
 }
 
 
-// add event listener to buil reset button functionality
+// add event listener and build reset button functionality
 document.querySelector('#reset').addEventListener('click', resetButton);
 function resetButton (e) {
     console.log('inside reset');

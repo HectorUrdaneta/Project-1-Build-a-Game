@@ -42,7 +42,7 @@ body {
     padding: 5px;
     font-size: 110%;
   }
-  #submit, #start, #next, #reset {
+  #submit, #start, #reset {
     background: #000;
     color: #fff;
     padding: 5px;
@@ -59,15 +59,11 @@ h2 {
     position: absolute;
     margin-left: 25px;
 }
-#next {
-    position: absolute;  
-    margin-left: 325px;
-  }
 #reset {
     position: absolute;
       margin-left: 625px;
 }
-#next #reset {
+#reset {
     text-align: center;
 }
 .inputs {
