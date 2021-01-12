@@ -48,34 +48,37 @@ function answerHandler(e) {
     //console.log('inside answerHandler');
     const response = document.querySelector('#answer').value;
     const resp = response.toLowerCase();
-    
-    if (resp == trivia[counter].answer && counter < trivia.length) {
-        score = score + 1;
-        counter = counter + 1;
-        console.log(score, counter);
-        document.querySelector('h2').textContent = `Score: ${score} out of 10`;
-        if (counter < trivia.length) {
-        document.querySelector('blockquote').textContent = trivia[counter].question;
+    if (resp === 'a' || resp === 'b' || resp === 'c') {
+        if (resp == trivia[counter].answer && counter < trivia.length) {
+            score = score + 1;
+            counter = counter + 1;
+            console.log(score, counter);
+            document.querySelector('h2').textContent = `Score: ${score} out of 10`;
+            if (counter < trivia.length) {
+            document.querySelector('blockquote').textContent = trivia[counter].question;
+            }
+            console.log('Correct Answer');
+        } else {   
+            counter = counter + 1;
+            console.log('Wrong answer');
+            if (counter < trivia.length) {
+            document.querySelector('blockquote').textContent = trivia[counter].question;
+            }
         }
-        console.log('Correct Answer');
-    } else {   
-        counter = counter + 1;
-        console.log('Wrong answer');
-        if (counter < trivia.length) {
-        document.querySelector('blockquote').textContent = trivia[counter].question;
+        if (counter === trivia.length) {
+            if (score >= 9) {
+            document.querySelector('blockquote').textContent = `GAME OVER! You're an expert with a scored ${score} out 10`;
+            } else if (score <= 8 && score >=5) {
+                document.querySelector('blockquote').textContent = `GAME OVER! You're pretty good with a scored ${score} out 10`;    
+            } else if (score < 5) {
+                document.querySelector('blockquote').textContent = `GAME OVER! Need to read more soccer trivia, you scored ${score} out 10`;
+            }
+            return;
         }
-    }
-    if (counter === trivia.length) {
-        if (score >= 9) {
-        document.querySelector('blockquote').textContent = `GAME OVER! You're an expert with a scored ${score} out 10`;
-        } else if (score <= 8 && score >=5) {
-            document.querySelector('blockquote').textContent = `GAME OVER! You're pretty good with a scored ${score} out 10`;    
-        } else if (score < 5) {
-            document.querySelector('blockquote').textContent = `GAME OVER! Need to read more soccer trivia, you scored ${score} out 10`;
-        }
+    } else {
+        alert('wrong input!! please type a, b or c');
         return;
     }
-
 }
 //Add function to start the game
 
