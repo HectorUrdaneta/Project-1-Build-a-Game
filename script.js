@@ -60,8 +60,10 @@ function answerHandler(e) {
         console.log('Correct Answer');
     } else {   
         counter = counter + 1;
-        document.querySelector('blockquote').textContent = trivia[counter].question;
         console.log('Wrong answer');
+        if (counter < trivia.length) {
+        document.querySelector('blockquote').textContent = trivia[counter].question;
+        }
     }
     if (counter === trivia.length) {
         if (score >= 9) {
