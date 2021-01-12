@@ -71,19 +71,31 @@ document.querySelector('#submit').addEventListener('click', answerHandler);
 function answerHandler(e) {
     e.preventDefault();
     //console.log('inside answerHandler');
+    if (counter === (trivia.length - 1)) {
+        if (score >= 9) {
+        document.querySelector('blockquote').textContent = `GAME OVER! You're an expert with a scored ${score} out 10`;
+        } else if (score <= 8 && score >=5) {
+            document.querySelector('blockquote').textContent = `GAME OVER! You're pretty good with a scored ${score} out 10`;    
+        } else if (score < 5) {
+            document.querySelector('blockquote').textContent = `GAME OVER! Need to read more soccer trivia, you scored ${score} out 10`;
+        }
+        return;
+    }
+      
+
     const response = document.querySelector('#answer').value;
-    //console.log(response, typeof response);
     const resp = response.toLowerCase();
-    //console.log(resp);
-    //console.log(trivia[counter].answer, typeof trivia[counter].answer);
+    
     
     if (resp == trivia[counter].answer && counter < trivia.length) {
         score = score + 1;
         counter = counter + 1;
         document.querySelector('h2').textContent = `Score: ${score} out of 10`;
+        document.querySelector('blockquote').textContent = trivia[counter].question;
         console.log('Correct Answer');
     } else {   
         counter = counter + 1;
+        document.querySelector('blockquote').textContent = trivia[counter].question;
         console.log('Wrong answer');
     }
     //document.querySelector('form').style.display = 'none';
@@ -95,7 +107,8 @@ function answerHandler(e) {
 document.querySelector('#start').addEventListener('click', startGame);
 
 function startGame(e) {
-    askQuestion(e);
+    document.querySelector('blockquote').textContent = trivia[counter].question;
+    //askQuestion(e);
     document.querySelector('#start').style.display = 'none';
     //document.querySelector('form').style.display = 'block';
     // document.querySelector('#next').style.display = 'none';
