@@ -20,7 +20,7 @@ const trivia = [
     answer: 'b'},
     {question: 'how many times has Germany won the World Cup? \n(a)2 \n(b)3 \n(c)4',
     answer: 'c'},
-    {question: 'nickname of the player that has won more World Cups? \n(a)Ronaldo \n(b)Messi \n(c)Pele',
+    {question: 'name of the player that has won more World Cups? \n(a)Ronaldo \n(b)Messi \n(c)Pele',
     answer: 'c'}
 ]
 console.log(trivia);
@@ -37,34 +37,57 @@ console.log(trivia);
 //     'Pele'
 // ]
 // console.log(answers);
+//Hide <form> and next question buttons
+//document.querySelector('form').style.display = 'none';
+//document.querySelector('#next').style.display = 'none';
 
 
 //Add event listener to display the questions
 document.querySelector('#next').addEventListener('click', askQuestion);
 let counter = 0;
+let score =0;
 function askQuestion (e) {
     e.preventDefault();
     console.log(e);
     console.log('inside askQuestion');
-      
+    if (counter === trivia.length) {
+        if (score >= 9) {
+        document.querySelector('blockquote').textContent = `GAME OVER! You're an expert with a scored ${score} out 10`;
+        } else if (score <= 8 && score >=5) {
+            document.querySelector('blockquote').textContent = `GAME OVER! You're pretty good with a scored ${score} out 10`;    
+        } else if (score < 5) {
+            document.querySelector('blockquote').textContent = `GAME OVER! Need to read more soccer trivia, you scored ${score} out 10`;
+        }
+        return;
+    } else {
     document.querySelector('blockquote').textContent = trivia[counter].question;
-    counter = counter + 1;
+    //document.querySelector('form').style.display = 'block';
+    //document.querySelector('#next').style.display = 'none';
+    }    
 }
 //Add event listener to manage correct and incorret answers
 document.querySelector('#submit').addEventListener('click', answerHandler);
 
 function answerHandler(e) {
-    console.log('inside answerHandler');
+    e.preventDefault();
+    //console.log('inside answerHandler');
     const response = document.querySelector('#answer').value;
-    console.log(response, typeof response);
+    //console.log(response, typeof response);
     const resp = response.toLowerCase();
-    console.log(resp);
-    console.log(trivia[counter].answer, typeof trivia[counter].answer);
-    if (resp == trivia[counter].answer) {
+    //console.log(resp);
+    //console.log(trivia[counter].answer, typeof trivia[counter].answer);
+    
+    if (resp == trivia[counter].answer && counter < trivia.length) {
+        score = score + 1;
+        counter = counter + 1;
+        document.querySelector('h2').textContent = `Score: ${score} out of 10`;
         console.log('Correct Answer');
-    } else {
-        console.log('wrong answer');
+    } else {   
+        counter = counter + 1;
+        console.log('Wrong answer');
     }
+    //document.querySelector('form').style.display = 'none';
+    //document.querySelector('#next').style.display = 'block';
 
 }
 //Add function to start the game
@@ -72,7 +95,10 @@ function answerHandler(e) {
 document.querySelector('#start').addEventListener('click', startGame);
 
 function startGame(e) {
-
+    askQuestion(e);
+    document.querySelector('#start').style.display = 'none';
+    //document.querySelector('form').style.display = 'block';
+    // document.querySelector('#next').style.display = 'none';
 }
 
 
@@ -80,7 +106,15 @@ function startGame(e) {
 document.querySelector('#reset').addEventListener('click', resetButton);
 function resetButton (e) {
     console.log('inside reset');
+    score = 0;
     counter = 0;
+    document.querySelector('#start').style.display = 'block';
+    document.querySelector('blockquote').textContent = 'Game On!'
+    document.querySelector('h2').textContent = `Score: ${score} out of 10`;
+    //reset visuals
+    //document.querySelector('form').style.display = 'none';
+    //document.querySelector('#next').style.display = 'none';
+
 }
 
 

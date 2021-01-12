@@ -30,7 +30,6 @@ body {
     background-size: cover;
     text-align: center;
   }
-  
   blockquote {
     font: 'Helvetica Neue';
     font-style: bold;
@@ -38,12 +37,12 @@ body {
     margin-bottom: 0;
   }
   #answer {
-    width: 240px;
+    width: 200px;
     margin: 5px 0;
     padding: 5px;
     font-size: 110%;
   }
-  #submit, #next, #reset, #start {
+  #submit, #start, #next, #reset {
     background: #000;
     color: #fff;
     padding: 5px;
@@ -51,14 +50,22 @@ body {
     height: 30px;
     font-size: 15px;
   }
+h2 {
+    font-size: 20px;
+    margin-left: 555px ;
+    margin-top: 0px;
+}
 #start {
-    margin-left: 65px;
+    position: absolute;
+    margin-left: 25px;
 }
 #next {
-      margin-left: 125px;
+    position: absolute;  
+    margin-left: 325px;
   }
 #reset {
-      margin-left: 150px;
+    position: absolute;
+      margin-left: 625px;
 }
 #next #reset {
     text-align: center;
