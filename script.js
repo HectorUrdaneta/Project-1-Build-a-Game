@@ -46,7 +46,24 @@ document.querySelector('#submit').addEventListener('click', answerHandler);
 function answerHandler(e) {
     e.preventDefault();
     //console.log('inside answerHandler');
-    if (counter === (trivia.length - 1)) {
+    const response = document.querySelector('#answer').value;
+    const resp = response.toLowerCase();
+    
+    if (resp == trivia[counter].answer && counter < trivia.length) {
+        score = score + 1;
+        counter = counter + 1;
+        console.log(score, counter);
+        document.querySelector('h2').textContent = `Score: ${score} out of 10`;
+        if (counter < trivia.length) {
+        document.querySelector('blockquote').textContent = trivia[counter].question;
+        }
+        console.log('Correct Answer');
+    } else {   
+        counter = counter + 1;
+        document.querySelector('blockquote').textContent = trivia[counter].question;
+        console.log('Wrong answer');
+    }
+    if (counter === trivia.length) {
         if (score >= 9) {
         document.querySelector('blockquote').textContent = `GAME OVER! You're an expert with a scored ${score} out 10`;
         } else if (score <= 8 && score >=5) {
@@ -56,23 +73,6 @@ function answerHandler(e) {
         }
         return;
     }
-    
-    const response = document.querySelector('#answer').value;
-    const resp = response.toLowerCase();
-    
-    if (resp == trivia[counter].answer && counter < trivia.length) {
-        score = score + 1;
-        counter = counter + 1;
-        document.querySelector('h2').textContent = `Score: ${score} out of 10`;
-        document.querySelector('blockquote').textContent = trivia[counter].question;
-        console.log('Correct Answer');
-    } else {   
-        counter = counter + 1;
-        document.querySelector('blockquote').textContent = trivia[counter].question;
-        console.log('Wrong answer');
-    }
-    //document.querySelector('form').style.display = 'none';
-    //document.querySelector('#next').style.display = 'block';
 
 }
 //Add function to start the game
