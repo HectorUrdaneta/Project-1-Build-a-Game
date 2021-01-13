@@ -2,7 +2,7 @@
 console.log("Ready to Play");
 
 const trivia = [
-    {question: 'Which country will host the 2022 World Cup? \n(a)Spain \n(b)Italy \n(c)Qatar',
+    {question: 'Which country will host the 2022 World Cup?\n(a)Spain\n(b)Italy\n(c)Qatar',
     answer: 'c'},
     {question: 'Which country has won the World Cup 5 times? \n(a)Germany \n(b)Brazil, \n(c)Italy',
     answer: 'b'},
