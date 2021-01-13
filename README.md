@@ -11,6 +11,7 @@ Have a Reset button.
 Stretch objectives:
 Set up auto progressing.
 Add 20 or 30 questions.
+Eliminate form submission and add click on answer functionality.
 Add a random feature to the game so that questions are displayed in that manner.
 Add a countdown timer for each question.
 
