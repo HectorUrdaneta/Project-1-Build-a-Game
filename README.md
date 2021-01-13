@@ -1,6 +1,5 @@
 # Project-1-Build-a-Game
 Game name "World Soccer Trivia"
-First project requirement of GA Software Engineering Immersive Course.
 
 Initial minimum objectives:
 •	Have a least 10 questions.
