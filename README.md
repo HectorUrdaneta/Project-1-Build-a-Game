@@ -23,23 +23,23 @@ Google Chrome Web Browser: used for launching the website
 Google Chrome Developer Tools: used to debugging the code.
 
 Installation requirements:
-Web Browser
-Internet Connectivity
+Web Browser.
+Internet Connectivity.
 
 
-General Requirements
+General Requirements:
 Create a familiar game using HTML, CSS and JavaScript. 
 Create a README.md file.   
 
-Technical Requirements
-Render in the browser
-Include separate HTML / CSS / JavaScript files
-Use Javascript for DOM manipulation
+Technical Requirements:
+Render in the browser.
+Include separate HTML / CSS / JavaScript files.
+Use Javascript for DOM manipulation.
 Be deployed online, using Github Project pages and/or to a custom domain.
-Use semantic markup for HTML and CSS (adhere to best practices)
+Use semantic markup for HTML and CSS (adhere to best practices).
 
-Stretch Technical Goals (optional)
-Add time-based scoring
-Track scores across games (even if the page is reloaded)
+Stretch Technical Goals (optional):
+Add time-based scoring.
+Track scores across games (even if the page is reloaded).
 Allow users to compete against each other on a high-score board.
 
